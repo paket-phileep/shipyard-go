@@ -1,27 +1,35 @@
-networks:
-  tailscale_proxy_example:
-    external: true
+version: "3.7"
+services:
+  ts-mealie:
+    image: tailscale/tailscale:latest
+    container_name: ts-mealie
+    hostname: mealie
+    environment:
+      - TS_AUTHKEY=tskey-auth-k1jssWRHhc11CNTRL-FEmtBMgd3EKeYSrfevXGDKiatt4fvnJ3
+      - TS_SERVE_CONFIG=/config/mealie.json
+      - TS_STATE_DIR=/var/lib/tailscale
+    volumes:
+      - ${PWD}/ts-mealie/state:/var/lib/tailscale
+      - ${PWD}/ts-mealie/config:/config
+      - /dev/net/tun:/dev/net/tun
+    cap_add:
+      - net_admin
+      - sys_module
+    restart: unless-stopped
+  mealie:
+    image: ghcr.io/mealie-recipes/mealie:v1.0.0
+    container_name: mealie
+    network_mode: service:ts-mealie
+    depends_on:
+      - ts-mealie
+    volumes:
+      - mealie-data:/app/data/
+    environment:
+      - ALLOW_SIGNUP=true
+    restart: unless-stopped
 
 volumes:
-  tailscale-whoami-state:
-
-services:
-  whoami:
-    image: traefik/whoami
-    networks:
-      - tailscale_proxy_example
-
-  tailscale-whoami-proxy:
-    image: hollie/tailscale-caddy-proxy:latest
-    volumes:
-      - tailscale-whoami-state:/var/lib/tailscale # Persist the tailscale state directory
-    environment:
-      - TS_HOSTNAME=tail1aca8f-example # Hostname you want this instance to have on the tailscale network
-      - TS_TAILNET=tailnet-tail1aca8f # Your tailnet name without the .ts.net suffix!
-      - CADDY_TARGET=whoami:80 # Target service and port
-    #      - TS_EXTRA_ARGS=--accept-dns      # Optional extra arguments to pass when starting tailscale
-    #      - SKIP_CADDYFILE_GENERATION=1     # Set this if you want to be able to override /etc/caddy/Caddyfile via a volume mapping
-    restart: on-failure
-    init: true
-    networks:
-      - tailscale_proxy_example
+  mealie-data:
+    driver: local
+  ts-mealie:
+    driver: local
