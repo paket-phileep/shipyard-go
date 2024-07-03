@@ -1,4 +1,4 @@
 {
-  "formulae": ["tailscale"]
+  "taps": [""],
+  "packages": ["tailscale"]
 }
-
