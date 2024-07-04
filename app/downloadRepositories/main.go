@@ -132,7 +132,7 @@ func max(a, b int) int {
 	return b
 }
 
-func main() {
+func DownloadRepositories() {
 	if _, err := tea.NewProgram(newModel()).Run(); err != nil {
 		fmt.Println("Error running program:", err)
 		os.Exit(1)
