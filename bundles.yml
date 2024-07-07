@@ -1,9 +1,0 @@
-config:
-  name: "pharmavillage"
-  package: "battleship-pharmavillage"
-
-images:
-  - - https://github.com/example/repository1.git
-    - ./repositories/repository1
-  - - https://github.com/example/repository2.git
-    - ./repositories/repository2

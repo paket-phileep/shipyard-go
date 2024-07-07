@@ -1,0 +1,11 @@
+config:
+  name: "pharmavillage"
+  package: "battleship-pharmavillage"
+
+images:
+  - uri: "https://github.com/example/repository1.git"
+    destination: "./repositories"
+    proxy: true
+  - uri: "https://github.com/example/repository2.git"
+    destination: "./another-repo"
+    proxy: false

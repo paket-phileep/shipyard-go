@@ -1,9 +1,12 @@
 package main
 
-import "shipyard/app"
+import (
+	"shipyard/app"
+
+	logger "github.com/charmbracelet/log"
+)
 
 func main() {
-	// app.InstallDependencies()
-	// app.DownloadRepositories()
+	logger.Warn("building battleship!")
 	app.InitRepos()
 }
