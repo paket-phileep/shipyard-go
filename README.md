@@ -3,7 +3,10 @@
 /<!--todo TODO --->
 set up tailnet
 
-- set up homebrew
+- set up homebrew √
+- install homebrew deps √
+- generate repos (forks for foreign repos) clone standing repos
+    - specify owner in cofnig.json as this will be the prefix 
 
 how to 
 
