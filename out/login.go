@@ -1,4 +1,4 @@
-package app
+package out
 
 // A simple example demonstrating the use of multiple text input components
 // from the Bubbles component library.

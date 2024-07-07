@@ -1,10 +1,11 @@
-package app
+package utils
 
 import (
 	"fmt"
 	"log"
 	"os"
 	"path/filepath"
+	"shipyard/fs"
 )
 
 // cloneOrForkRepo attempts to clone a repository from a given URL into a target directory
@@ -33,13 +34,13 @@ func ProcessRepo(repoURL, targetDir, packageName string) error {
 	}
 
 	// Update package.json if it exists or create if it doesn't
-	if err := UpdatePackageJSON(targetDir, packageName); err != nil {
+	if err := fs.UpdatePackageJSON(targetDir, packageName); err != nil {
 		log.Printf("Failed to update package.json in %s: %v\n", targetDir, err)
 		return err
 	}
 
 	// Update go.mod if it exists
-	if err := UpdateGoMod(targetDir, packageName); err != nil {
+	if err := fs.UpdateGoMod(targetDir, packageName); err != nil {
 		log.Printf("Failed to update go.mod in %s: %v\n", targetDir, err)
 		return err
 	}
@@ -53,7 +54,7 @@ func ProcessRepo(repoURL, targetDir, packageName string) error {
 		if info.IsDir() {
 			subGoModPath := filepath.Join(path, "go.mod")
 			if _, err := os.Stat(subGoModPath); err == nil {
-				if err := UpdateGoMod(path, packageName+"/"+filepath.Base(path)); err != nil {
+				if err := fs.UpdateGoMod(path, packageName+"/"+filepath.Base(path)); err != nil {
 					log.Printf("Failed to update go.mod in subdirectory %s: %v\n", path, err)
 					return err
 				}

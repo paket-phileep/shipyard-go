@@ -5,8 +5,9 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-
-	"gopkg.in/yaml.v2"
+	"shipyard/utils"
+	logger "github.com/charmbracelet/log"
+	yaml "gopkg.in/yaml.v2"
 )
 
 // Config struct is used to match the contents of the "config" section in the bundle.yaml file
@@ -24,7 +25,7 @@ type Bundle struct {
 
 // InitRepos is the main function to read the bundle.yml file,
 // parse it, and process each repository listed in the repositories section
-func main() {
+func initRepos() {
 	// Read the bundle.yml file
 	bundleFilePath := "/Users/sullemanhossam/Desktop/shipyard/bundles.yml"
 	data, err := os.ReadFile(bundleFilePath)
@@ -53,7 +54,7 @@ func main() {
 		targetDir := image[1]
 		packageName := fmt.Sprintf("%s/%s", bundle.Config.Package, filepath.Base(repoURL))
 
-		if err := processRepo(repoURL, targetDir, packageName); err != nil {
+		if err := utils.ProcessRepo(repoURL, targetDir, packageName); err != nil {
 			log.Printf("Failed to process repository %s: %v\n", repoURL, err)
 			fmt.Printf("Failed to process repository %s. Error: %v\n", repoURL, err)
 		}
@@ -67,13 +68,17 @@ func InitRepos() {
 		fmt.Printf("Failed to open log file: %v\n", err)
 		os.Exit(1)
 	}
+
 	defer logFile.Close()
 
 	log.SetOutput(logFile)
 	log.Println("Starting InitRepos")
 
+	logger.Debug("Cookie 🍪") // won't print anything
+	logger.Info("Hello World!")
+
 	// Run InitRepos
-	main()
+	initRepos()
 
 	log.Println("Completed InitRepos")
 }

@@ -1,6 +1,6 @@
 package main
 
-import app "shipyard/app/initRepos"
+import "shipyard/app"
 
 func main() {
 	// app.InstallDependencies()

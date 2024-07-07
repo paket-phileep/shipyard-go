@@ -1,4 +1,4 @@
-package main
+package out
 
 import (
 	"fmt"
@@ -30,7 +30,7 @@ type item struct {
 	description string
 }
 
-//* INFO functions that return the information 
+// * INFO functions that return the information
 func (i item) Title() string       { return i.title }
 func (i item) Description() string { return i.description }
 func (i item) FilterValue() string { return i.title }
@@ -46,7 +46,7 @@ type listKeyMap struct {
 }
 
 func newListKeyMap() *listKeyMap {
-	//REVIEW - 
+	//REVIEW -
 	return &listKeyMap{
 		insertItem: key.NewBinding(
 			key.WithKeys("a"),

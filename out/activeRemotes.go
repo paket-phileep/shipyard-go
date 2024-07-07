@@ -1,4 +1,4 @@
-package app
+package out
 
 // An example demonstrating an application with multiple views.
 //
@@ -40,7 +40,7 @@ var (
 	ramp = makeRampStyles("#B14FFF", "#00FFA3", progressBarWidth)
 )
 
-func main() {
+func ActiveRemotes() {
 	initialModel := model{0, false, 10, 0, 0, false, false}
 	p := tea.NewProgram(initialModel)
 	if _, err := p.Run(); err != nil {
