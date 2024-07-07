@@ -5,7 +5,7 @@ func SetupNxGolangWorkspaces() {
 }
 
 func SetupLernaWorkspaces() {
-npx lerna init --packages="foo/*" --packages="bar/*"
+// npx lerna init --packages="foo/*" --packages="bar/*"
 }
 
 func SetupYarnWorkspaces() {

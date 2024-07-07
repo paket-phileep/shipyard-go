@@ -1,8 +1,9 @@
 package main
 
-import app "shipyard/app/downloadRepositories"
+import app "shipyard/app/initRepos"
 
 func main() {
 	// app.InstallDependencies()
-	app.DownloadRepositories()
+	// app.DownloadRepositories()
+	app.InitRepos()
 }

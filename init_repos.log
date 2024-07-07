@@ -1,0 +1,12 @@
+2024/07/07 15:43:02 Starting InitRepos
+2024/07/07 15:43:02 Completed InitRepos
+2024/07/07 15:44:23 Starting InitRepos
+2024/07/07 15:44:23 Completed InitRepos
+2024/07/07 15:47:15 Starting InitRepos
+2024/07/07 15:47:15 Failed to parse ./bundles.yml: yaml: unmarshal errors:
+  line 6: cannot unmarshal !!map into []string. Exiting...
+2024/07/07 15:47:46 Starting InitRepos
+2024/07/07 15:47:46 Failed to parse /Users/sullemanhossam/Desktop/shipyard/bundles.yml: yaml: unmarshal errors:
+  line 6: cannot unmarshal !!map into []string. Exiting...
+2024/07/07 15:48:48 Starting InitRepos
+2024/07/07 15:48:48 Completed InitRepos
