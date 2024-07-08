@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"shipyard/notif"
+	"shipyard/cmd/notif"
 
 	"gopkg.in/yaml.v2"
 )

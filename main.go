@@ -1,12 +1,12 @@
 package main
 
 import (
-	"shipyard/app"
+	"shipyard/cmd/app"
 
 	logger "github.com/charmbracelet/log"
 )
 
 func main() {
 	logger.Warn("building battleship!")
-	app.InitRepos()
+	app.ExtractImages()
 }

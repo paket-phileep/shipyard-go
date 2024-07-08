@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"shipyard/fs"
-	"shipyard/notif"
+	"shipyard/cmd/fs"
+	"shipyard/cmd/notif"
 
 	logger "github.com/charmbracelet/log"
 )
 
-func InitRepos() {
+func ExtractImages() {
 	// Initialize logging
 	logger.Info("Initializing repositories")
 	logFile, err := os.OpenFile("init_repos.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)

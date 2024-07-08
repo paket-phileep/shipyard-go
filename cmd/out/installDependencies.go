@@ -7,9 +7,9 @@ import (
 	"log"
 	"math/rand"
 	"os"
-	"shipyard/controller"
-	"shipyard/types"
-	"shipyard/utils"
+	"shipyard/cmd/controller"
+	"shipyard/cmd/types"
+	"shipyard/cmd/utils"
 	"time"
 
 	"github.com/charmbracelet/bubbles/spinner"

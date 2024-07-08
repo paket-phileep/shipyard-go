@@ -1,13 +1,13 @@
-package controller
+package utils
 
 import (
 	"encoding/json"
 	"io/ioutil"
 	"os"
-	"shipyard/types"
+	"shipyard/cmd/types"
 )
 
-func ReadDependencies(filePath string) (types.Dependencies, error) {
+func ReadFile(filePath string) (types.Dependencies, error) {
 	var deps types.Dependencies
 
 	file, err := os.Open(filePath)

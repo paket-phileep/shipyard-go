@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"shipyard/fs"
+	"shipyard/cmd/fs"
 )
 
 // cloneOrForkRepo attempts to clone a repository from a given URL into a target directory
